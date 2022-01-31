@@ -17,8 +17,8 @@
               <nz-option nzValue="lucy" nzLabel="Spanish"></nz-option>
             </nz-select>&nbsp;
             <button nz-button nzType="default" title="Logout" (click)="LogoutUser()"
-              style="background: transparent !important;  color: #fff !important; height: 45px !important;" title="Logout" nzShape=""
-              ><i nz-icon nzType="logout" style="color: #00AECF;"></i> Logout</button>
+              style="background: transparent !important;  color: #fff !important; height: 45px !important;"
+              title="Logout" nzShape=""><i nz-icon nzType="logout" style="color: #00AECF;"></i> Logout</button>
           </div>
         </div>
         <div class="container">
@@ -39,32 +39,34 @@
               <div class="row">
 
                 <div class="col-sm-6">
-                  <div id="data" class="card" (click)="selectPPA('data')" onfocus="showNav(false)">
+                  <div id="data" class="card" (click)="selectPPA('data')" style="height: 120px;"
+                    onfocus="showNav(false)">
                     <h4>Data</h4>
-                    <span>Lorem Ipsum has been the industry</span>
+                    <span>View and Download Data from Reference Tables</span>
                   </div>
                 </div>
 
                 <div class="col-sm-6">
-                  <div class="card" id="claim" (click)="selectPPA('claim')" onfocus="showNav(false)"
-                    onblur="showNav(true)">
+                  <div class="card" id="claim" (click)="selectPPA('claim')" style="height: 120px;"
+                    onfocus="showNav(false)" onblur="showNav(true)">
                     <h4>Claim</h4>
-                    <span>Lorem Ipsum has been the industry</span>
+                    <span>View / Edit and Create Both Regular and Miscellaneous Claims</span>
                   </div>
                 </div>
 
                 <div class="col-sm-6">
-                  <div class="card" id="reports" (click)="selectPPA('reports')" onfocus="showNav(false)"
-                    onblur="showNav(true)">
+                  <div class="card" id="reports" (click)="selectPPA('reports')" style="height: 120px;"
+                    onfocus="showNav(false)" onblur="showNav(true)">
                     <h4>Reports</h4>
-                    <span>Lorem Ipsum has been the industry</span>
+                    <span>Track / Manage / Measure Claims and Audit Status</span>
                   </div>
                 </div>
 
                 <div class="col-sm-6">
-                  <div class="card" id="audit" (click)="selectPPA('audit')" onfocus="showNav(false)">
+                  <div class="card" id="audit" (click)="selectPPA('audit')" style="height: 120px;"
+                    onfocus="showNav(false)">
                     <h4>Audit</h4>
-                    <span>Lorem Ipsum has been the industry</span>
+                    <span>Qualified Record Sets</span>
                   </div>
 
                 </div>
@@ -82,10 +84,6 @@
                 <p>Select Audit Type</p>
 
                 <div *ngFor="let val of listOfData">
-                  <!-- <nz-radio-group [(ngModel)]="radioValue"  (ngModelChange)="changeAudiType(val.name)">
-                                    <label nz-radio-button [nzValue]="val.name"
-                                        style="width: 100%; background:#F2F2F2 !important;">{{val.name}}</label>&nbsp;
-                                </nz-radio-group> -->
 
                   <nz-radio-group [(ngModel)]="radioValue" (ngModelChange)="changeAudiType(val.name)"
                     style="margin-bottom: 15px !important;">
@@ -106,9 +104,13 @@
                   <div class="container">
 
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                      <button nz-button style="float: left;  color: #fff !important;" nzDanger nzType="primary"
+                        (click)="NextFnCall()" [disabled]="NextBtnDisable" *ngIf="showNextFnCall">Next</button>
 
                       <button nz-button style="float: left;  color: #fff !important;" nzDanger nzType="primary"
-                        (click)="sendRequest()" [disabled]="NextBtnDisable">Next</button>
+                        (click)="AssignPRFnCall()" [disabled]="NextBtnDisable" *ngIf="showPRRequest">Assign PR</button>
+                      <button nz-button style="float: left;  color: #fff !important;" nzDanger nzType="primary"
+                        (click)="ManagePrFnCall()" [disabled]="NextBtnDisable"  *ngIf="showPRRequest">Manage PR</button>
 
                     </div>
                   </div>
